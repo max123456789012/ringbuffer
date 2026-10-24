@@ -9,8 +9,8 @@ target_include_directories(ringbuffer PUBLIC
 )
 
 
-option(ENABLE_TESTS "Enable Tests" ON)
-option(ENABLE_EXAMPLES "Build Examples" ON)
+option(ENABLE_TESTS "Enable Tests" OFF)
+option(ENABLE_EXAMPLES "Build Examples" OFF)
 
 if(ENABLE_TESTS)
   message("tests enabled")
