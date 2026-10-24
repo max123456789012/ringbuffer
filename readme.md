@@ -15,7 +15,7 @@ The project requires the following headers on the target platform:
 ### Interrupt Service Routines
 The ring buffer can be used to transmit data from an ISR to another part of the program,
 but the atomic load and atomic store operations need to be lock free for that. Please check
-on your platform.
+that on your platform.
 
 ### Adding to CMAKE
 
@@ -27,5 +27,22 @@ add_subdirectory(libraries/ringbuffer)
 ...
 add_executable(example)
 target_link_libraries(example ringbuffer)
+```
+
+Or via fetch content:
+```cmake
+
+include(FetchContent)
+FetchContent_Declare(
+  ringbuffer
+  GIT_REPOSITORY https://github.com/max123456789012/ringbuffer.git
+  GIT_TAG        main
+)
+FetchContent_MakeAvailable(ringbuffer)
+
+...
+add_executable(example)
+target_link_libraries(example ringbuffer)
+```
 
 Please checkout the [example folder](examples) for inspiration.
