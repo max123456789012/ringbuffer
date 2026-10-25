@@ -45,4 +45,18 @@ add_executable(example)
 target_link_libraries(example ringbuffer)
 ```
 
-Please checkout the [example folder](examples) for inspiration.
+### Adding to C Program
+Include the libraries header to use its functionality:
+```c
+#include <ringbuffer/ringbuffer.h>
+```
+
+Please checkout the example folder for inspiration.
+
+## Documentation
+Doxygen is used to generate documentation pages. To build the
+documentation execute:
+```bash
+doxygen doc/Doxyfile
+```
+This will place the documentation in html format under doc/html

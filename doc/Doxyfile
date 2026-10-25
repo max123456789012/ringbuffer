@@ -1,0 +1,14 @@
+PROJECT_NAME           = Ringbuffer
+
+OUTPUT_LANGUAGE        = English
+
+SORT_MEMBER_DOCS       = NO
+SORT_BRIEF_DOCS        = NO
+
+
+INPUT                  = include/ringbuffer/ringbuffer.h examples/example.c examples/example_mt.c readme.md
+USE_MDFILE_AS_MAINPAGE = readme.md
+
+GENERATE_LATEX         = NO
+GENERATE_HTML          = YES
+OUTPUT_DIRECTORY       = doc

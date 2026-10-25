@@ -28,6 +28,18 @@ NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+/**
+ * @file example_mt.c
+ * 
+ * @example
+ * 
+ * @brief Example, which shows the transmission between two threads.
+ * 
+ * @details One Thread pumps data in the ringbuffer, while the other one reads from it.
+ * Not all data will be written in the ringbuffer, because it prevents writing data
+ * when its full, resulting in return false on ringbuffer_add_data()
+ */
+
 
 #include <stdio.h>
 #include <threads.h>
@@ -45,10 +57,13 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 int thrd1();
 int thrd2();
 
+// create buffer used by the ringbuffer
 RINGBUFFER_DECLARE_MEMORY(buffer, 128)
 
+// create the ringbuffer, so that both threads can access it
 ringbuffer_t ringbuffer;
 
+// example data written to and read from the ring buffer
 const char abc[] = "abcdefghijklmnopqrstuvwxyz";
 
 int main()
@@ -82,6 +97,7 @@ int thrd1()
 {
   for(size_t i=0; i<10000; ++i)
   {
+    // put data in the ringbuffer. this will fail many times because the buffer will get full
     if(!ringbuffer_add_data(&ringbuffer, abc, sizeof(abc)))
     {
       // handle insertion error
@@ -105,6 +121,7 @@ int thrd2()
 
   for(unsigned int i=0; i<10000; ++i)
   {
+    // read the data and print it out
     read = ringbuffer_get_data(&ringbuffer, buffer, sizeof(buffer));
     if(read)
     {

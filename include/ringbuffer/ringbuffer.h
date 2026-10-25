@@ -35,6 +35,11 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * 
  * @brief ring buffer implementation to allow two async
  * running programs parts to exchange data.
+ * 
+ * @note One part of the Program can only send and the ohter can only receive.
+ * Two separate ringbuffers are required, to exchange data in two directions. 
+ * For example one ringbuffer to transmit data from thread A to B and another one
+ * to transmit data from thread B to A.
  */
 
 #ifndef RINGBUFFER_H

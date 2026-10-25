@@ -33,6 +33,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * @file example.c
  * 
  * @author Maximilian Schmid
+ * 
+ * @example
  */
 
 
