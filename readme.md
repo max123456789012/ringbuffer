@@ -45,7 +45,7 @@ add_executable(example)
 target_link_libraries(example ringbuffer)
 ```
 
-### Adding to C Program
+### Adding to a C Program
 Include the libraries header to use its functionality:
 ```c
 #include <ringbuffer/ringbuffer.h>
